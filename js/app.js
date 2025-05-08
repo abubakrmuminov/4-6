@@ -26,6 +26,3 @@ console.log(capitalizeFirst(123));
 
 console.log(getStringLength("hello"));      
 console.log(getStringLength(undefined));      
-
-console.log(mergeAndSortDescending([50, 30], [40, 60])); 
-console.log(mergeAndSortDescending([], []));      

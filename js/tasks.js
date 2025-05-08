@@ -11,7 +11,6 @@
 // Har doim finally xabari: "Hisoblash tugadi!"
 
 export function squareNumber(a) {
-  return 0;
 }
 
 // ==============================================

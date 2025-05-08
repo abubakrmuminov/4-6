@@ -91,17 +91,6 @@ export function mergeAndSort(arr1, arr2) {
 }
 
 // 8-masala \\
-export function capitalizeFirst(str) {
-  if (typeof str !== "string") return "Hayitali, bu string emas!";
-  let first = str.charAt(0).toUpperCase();
-  let rest = "";
-  for (let i = 1; i < str.length; i++) {
-    rest += str.charAt(i);
-  }
-  return first + rest;
-}
-
-// 9-masala \\
 export function getStringLength(str) {
   if (typeof str !== "string") return "Abdulmo'min, yana adashding!";
   let length = 0;

@@ -1,159 +1,133 @@
-// ==============================================
-// ================= 1-masala ==================
-// ==============================================
-// Topic: try {} catch {} finally {}
-// Ibrohimjon o'zining "raqam kvadrati" kalkulyatorini sinab ko'rmoqda, lekin har doim
-// noto'g'ri ma'lumot kiritadi! Funksiya son qabul qiladi va uning kvadratini hisoblaydi.
-// Agar xato yuz bersa, "Ibrohimjon, yana xato qilding!" qaytariladi. Finally blokida
-// "Hisoblash tugadi!" xabari chiqadi.
-// Input: a = 5 в†’ Output: 25
-// Input: a = "bes" в†’ Output: "Ibrohimjon, yana xato qilding!"
-// Har doim finally xabari: "Hisoblash tugadi!"
-
+// 1-masala
 export function squareNumber(a) {
+  let result;
+  if (typeof a === "number") {
+    result = a * a;
+  } else {
+    result = "Ibrohimjon, yana xato qilding!";
+  }
+  console.log("Hisoblash tugadi!");
+  return result;
 }
 
-// ==============================================
-// ================= 2-masala ==================
-// ==============================================
-// Topic: try {} catch {} finally {}
-// Zafarjon "string uzunligi" hisoblagichini yasadi, lekin u har doim null yoki son
-// kiritadi! Funksiya string qabul qiladi va uning uzunligini qaytaradi. Agar xato
-// yuz bersa, "Zafarjon, bu nima?!" qaytariladi. Finally blokida "Tahlil tugadi!"
-// xabari chiqadi.
-// Input: str = "salom" в†’ Output: 5
-// Input: str = null в†’ Output: "Zafarjon, bu nima?!"
-// Har doim finally xabari: "Tahlil tugadi!"
+// 2-masala
+export function stringLength(str) {
+  let result;
+  if (typeof str === "string") {
+    result = str.length;
+  } else {
+    result = "Zafarjon, bu nima?!";
+  }
+  console.log("Tahlil tugadi!");
+  return result;
+}
 
-export function stringLength(str) {}
-
-// ==============================================
-// ================= 3-masala ==================
-// ==============================================
-// Topic: fill metodi
-// Ne'matjon o'zining "raqamlar ro'yxati"ni to'ldirmoqchi, lekin u faqat chalkashadi!
-// Funksiya raqamlar arrayini qabul qiladi va barcha elementlarni 42 bilan to'ldiradi.
-// Agar array bo'sh bo'lsa, bo'sh array qaytariladi.
-// Input: arr = [1, 2, 3] в†’ Output: [42, 42, 42]
-// Input: arr = [] в†’ Output: []
-
+// 3-masala
 export function fillWith42(arr) {
-  // Mantiq yozing
+  if (!Array.isArray(arr) || arr.length === 0) return [];
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = 42;
+  }
+  return arr;
 }
 
-// ==============================================
-// ================= 4-masala ==================
-// ==============================================
-// Topic: splice metodi
-// Hamidulloh o'z ro'yxatiga yangi element qo'shmoqchi, lekin har doim noto'g'ri joyga
-// qo'shadi! Funksiya array qabul qiladi, 2-indeksdagi elementni o'chiradi va o'rniga
-// 100 qo'shadi. Agar array uzunligi 3 dan kichik bo'lsa, [] qaytariladi.
-// Input: arr = [10, 20, 30, 40] в†’ Output: [10, 20, 100, 40]
-// Input: arr = [1, 2] в†’ Output: []
-
+// 4-masala
 export function replaceWith100(arr) {
-  // Mantiq yozing
+  if (arr.length < 3) return [];
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i === 2) {
+      newArr.push(100);
+    } else {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
 }
 
-// ==============================================
-// ================= 5-masala ==================
-// ==============================================
-// Topic: sort metodi
-// Shohrux o'zining "ism ro'yxati"ni saralamoqchi, lekin u tartibni chalkashtiradi!
-// Funksiya stringlar arrayini qabul qiladi va ularni alfavit tartibida saralaydi.
-// Agar array bo'sh bo'lsa, ["Shohrux, tartib yo'q!"] qaytariladi.
-// Input: arr = ["Zafar", "Ibrohim", "Abubakr"] в†’ Output: ["Abubakr", "Ibrohim", "Zafar"]
-// Input: arr = [] в†’ Output: ["Shohrux, tartib yo'q!"]
-
+// 5-masala
 export function sortNames(arr) {
-  // Mantiq yozing
+  if (arr.length === 0) return ["Shohrux, tartib yo'q!"];
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
 }
 
-// ==============================================
-// ================= 6-masala ==================
-// ==============================================
-// Topic: Rest operatori
-// Abubakr o'zining "mehmonlar ro'yxati"ni tuzmoqda, lekin u qo'shimcha mehmonlarni
-// unutadi! Funksiya asosiy mehmon (string) va qo'shimcha mehmonlarni (...rest) qabul
-// qiladi, barchasini bitta arrayga joylaydi va uzunligini qaytaradi.
-// Input: main = "Abubakr", others = "Zafar", "Shohrux" в†’ Output: 3
-// Input: main = "Abubakr" в†’ Output: 1
-
-export function countGuests(main, ...others) {
-  // Mantiq yozing
+// 6-masala
+export function countGuests(main, other1, other2) {
+  let guests = [];
+  guests.push(main);
+  if (other1) guests.push(other1);
+  if (other2) guests.push(other2);
+  return guests.length;
 }
 
-// ==============================================
-// ================= 7-masala ==================
-// ==============================================
-// Topic: Spread operatori
-// Muhammadhasan o'zining "raqamlar to'plami"ni birlashtirmoqchi, lekin u faqat
-// chalkashtiradi! Funksiya ikkita raqamlar arrayini qabul qiladi, ularni spread
-// operatori yordamida birlashtiradi va o'sish tartibida saralaydi.
-// Input: arr1 = [3, 1], arr2 = [2, 4] в†’ Output: [1, 2, 3, 4]
-// Input: arr1 = [], arr2 = [] в†’ Output: []
-
+// 7-masala
 export function mergeAndSort(arr1, arr2) {
-  // Mantiq yozing
+  let combined = [];
+  for (let i = 0; i < arr1.length; i++) {
+    combined.push(arr1[i]);
+  }
+  for (let j = 0; j < arr2.length; j++) {
+    combined.push(arr2[j]);
+  }
+  for (let i = 0; i < combined.length - 1; i++) {
+    for (let j = i + 1; j < combined.length; j++) {
+      if (combined[i] > combined[j]) {
+        let temp = combined[i];
+        combined[i] = combined[j];
+        combined[j] = temp;
+      }
+    }
+  }
+  return combined;
 }
 
-// ==============================================
-// ================= 8-masala ==================
-// ==============================================
-// Topic: Autoboxing
-// Hayitali string bilan metod ishlata olmayapti, chunki u primtive stringlar bilan
-// adashmoqda! Funksiya string qabul qiladi, uning birinchi harfini katta harfga
-// aylantiradi (toUpperCase). Agar input string bo'lmasa, "Hayitali, bu string emas!"
-// qaytariladi.
-// Input: str = "salom" в†’ Output: "Salom"
-// Input: str = 123 в†’ Output: "Hayitali, bu string emas!"
-
+// 8-masala
 export function capitalizeFirst(str) {
-  // Mantiq yozing
+  if (typeof str !== "string") return "Hayitali, bu string emas!";
+  let first = str.charAt(0).toUpperCase();
+  let rest = "";
+  for (let i = 1; i < str.length; i++) {
+    rest += str.charAt(i);
+  }
+  return first + rest;
 }
 
-// ==============================================
-// ================= 9-masala ==================
-// ==============================================
-// Topic: Autoboxing
-// Abdulmo'min string uzunligini hisoblamoqchi, lekin u noto'g'ri ma'lumot kiritadi!
-// Funksiya string qabul qiladi, uning uzunligini qaytaradi. Agar input string bo'lmasa,
-// "Abdulmo'min, yana adashding!" qaytariladi.
-// Input: str = "hello" в†’ Output: 5
-// Input: str = undefined в†’ Output: "Abdulmo'min, yana adashding!"
-
+// 9-masala
 export function getStringLength(str) {
-  // Mantiq yozing
+  if (typeof str !== "string") return "Abdulmo'min, yana adashding!";
+  let length = 0;
+  for (let i = 0; str[i] !== undefined; i++) {
+    length++;
+  }
+  return length;
 }
 
-// ==============================================
-// ================= 10-masala =================
-// ==============================================
-// Topic: Spread va sort
-// Asilbek, Dostonbek va Azizbek o'zlarining "ballar ro'yxati"ni tartiblamoqchi, lekin
-// ular doimo ro'yxatni chalkashtiradilar! Funksiya ikkita ballar arrayini qabul qiladi,
-// spread yordamida birlashtiradi va kamayish tartibida saralaydi.
-// Input: arr1 = [50, 30], arr2 = [40, 60] в†’ Output: [60, 50, 40, 30]
-// Input: arr1 = [], arr2 = [] в†’ Output: []
-
+// 10-masala
 export function mergeAndSortDescending(arr1, arr2) {
-  // Mantiq yozing
+  let combined = [];
+  for (let i = 0; i < arr1.length; i++) {
+    combined.push(arr1[i]);
+  }
+  for (let j = 0; j < arr2.length; j++) {
+    combined.push(arr2[j]);
+  }
+  for (let i = 0; i < combined.length - 1; i++) {
+    for (let j = i + 1; j < combined.length; j++) {
+      if (combined[i] < combined[j]) {
+        let temp = combined[i];
+        combined[i] = combined[j];
+        combined[j] = temp;
+      }
+    }
+  }
+  return combined;
 }
-
-// ==============================================
-// ================= Savollar ==================
-// ==============================================
-// 1. Try-catch bloklari qanday xatolarni ushlashda foydali va Ibrohimjon yoki Zafarjon
-//    qanday xatolarni keltirib chiqarishi mumkin?
-
-// 2. Fill, splice va sort metodlari arrayga qanday ta'sir qiladi va Ne'matjon yoki
-//    Hamidulloh bu metodlarni noto'g'ri ishlatganda nima bo'ladi?
-
-// 3. Rest va spread operatorlari o'rtasidagi farq nima va Abubakr yoki Muhammadhasan
-//    ularni chalkashtirsa, qanday muammolar yuzaga keladi?
-
-// 4. Autoboxing jarayoni JavaScriptda qachon yuz beradi va Hayitali yoki Abdulmo'min
-//    primtive stringlar bilan metod ishlatganda nima uchun xato qilmaydi?
-
-// 5. Agar Shohrux arrayni saralashda sort metodini noto'g'ri ishlatib, raqamlar o'rniga
-//    stringlar bilan ishlasa, qanday natija oladi?

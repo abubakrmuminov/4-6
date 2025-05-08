@@ -11,7 +11,7 @@
 // Har doim finally xabari: "Hisoblash tugadi!"
 
 export function squareNumber(a) {
-    
+  return 0;
 }
 
 // ==============================================
@@ -26,9 +26,7 @@ export function squareNumber(a) {
 // Input: str = null в†’ Output: "Zafarjon, bu nima?!"
 // Har doim finally xabari: "Tahlil tugadi!"
 
-export function stringLength(str) {
-  
-}
+export function stringLength(str) {}
 
 // ==============================================
 // ================= 3-masala ==================

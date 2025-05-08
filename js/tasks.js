@@ -1,4 +1,4 @@
-// 1-masala
+// 1-masala \\
 export function squareNumber(a) {
   let result;
   if (typeof a === "number") {
@@ -10,7 +10,7 @@ export function squareNumber(a) {
   return result;
 }
 
-// 2-masala
+// 2-masala \\
 export function stringLength(str) {
   let result;
   if (typeof str === "string") {
@@ -22,7 +22,7 @@ export function stringLength(str) {
   return result;
 }
 
-// 3-masala
+// 3-masala \\
 export function fillWith42(arr) {
   if (!Array.isArray(arr) || arr.length === 0) return [];
   for (let i = 0; i < arr.length; i++) {
@@ -31,7 +31,7 @@ export function fillWith42(arr) {
   return arr;
 }
 
-// 4-masala
+// 4-masala \\
 export function replaceWith100(arr) {
   if (arr.length < 3) return [];
   let newArr = [];
@@ -45,7 +45,7 @@ export function replaceWith100(arr) {
   return newArr;
 }
 
-// 5-masala
+// 5-masala \\
 export function sortNames(arr) {
   if (arr.length === 0) return ["Shohrux, tartib yo'q!"];
   for (let i = 0; i < arr.length - 1; i++) {
@@ -60,7 +60,7 @@ export function sortNames(arr) {
   return arr;
 }
 
-// 6-masala
+// 6-masala \\
 export function countGuests(main, other1, other2) {
   let guests = [];
   guests.push(main);
@@ -69,7 +69,7 @@ export function countGuests(main, other1, other2) {
   return guests.length;
 }
 
-// 7-masala
+// 7-masala \\
 export function mergeAndSort(arr1, arr2) {
   let combined = [];
   for (let i = 0; i < arr1.length; i++) {
@@ -90,7 +90,7 @@ export function mergeAndSort(arr1, arr2) {
   return combined;
 }
 
-// 8-masala
+// 8-masala \\
 export function capitalizeFirst(str) {
   if (typeof str !== "string") return "Hayitali, bu string emas!";
   let first = str.charAt(0).toUpperCase();
@@ -101,7 +101,7 @@ export function capitalizeFirst(str) {
   return first + rest;
 }
 
-// 9-masala
+// 9-masala \\
 export function getStringLength(str) {
   if (typeof str !== "string") return "Abdulmo'min, yana adashding!";
   let length = 0;
@@ -109,25 +109,4 @@ export function getStringLength(str) {
     length++;
   }
   return length;
-}
-
-// 10-masala
-export function mergeAndSortDescending(arr1, arr2) {
-  let combined = [];
-  for (let i = 0; i < arr1.length; i++) {
-    combined.push(arr1[i]);
-  }
-  for (let j = 0; j < arr2.length; j++) {
-    combined.push(arr2[j]);
-  }
-  for (let i = 0; i < combined.length - 1; i++) {
-    for (let j = i + 1; j < combined.length; j++) {
-      if (combined[i] < combined[j]) {
-        let temp = combined[i];
-        combined[i] = combined[j];
-        combined[j] = temp;
-      }
-    }
-  }
-  return combined;
 }
